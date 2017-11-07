@@ -2,7 +2,7 @@
 
 if( !class_exists( 'AcidOption' ) ) {
     
-    class AcidOption {
+    class AcidOption implements AcidComponent {
         
         private $types = array(
             'text',
@@ -43,7 +43,7 @@ if( !class_exists( 'AcidOption' ) ) {
             $this->option = $option;
 
             $this->set_args();
-            $this->create_option();
+            $this->render();
             
             
         }
@@ -84,7 +84,7 @@ if( !class_exists( 'AcidOption' ) ) {
             
         }
         
-        private function create_option() {
+        public function render() {
             
             global $wp_customize;
             

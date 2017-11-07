@@ -48,37 +48,39 @@ if ( ! class_exists( 'AcidCustomizer' ) ) {
         
         private function create_panel( $panel ) {
             
-            global $wp_customize;
-            
             $id = key( $panel );
             
+            $panel = new AcidPanel( null, $id, $panel );
             
-            $wp_customize->add_panel( $id, array(
-                
-                'title'             => $panel[ $id ]['title'],
-                'description'       => $panel[ $id ]['description'],
-                
-            ) );
-            
-            if( ! isset( $panel[ $id ][ 'sections' ] ) ) {
-                return;
-            }
-            
-            foreach( $panel[ $id ]['sections'] as $section_id => $section ) {
-                $this->create_section( $id, $section_id, $section );
-            }
-            
+//            global $wp_customize;
+//            
+//            $id = key( $panel );
+//            
+//            
+//            $wp_customize->add_panel( $id, array(
+//                
+//                'title'             => $panel[ $id ]['title'],
+//                'description'       => $panel[ $id ]['description'],
+//                
+//            ) );
+//            
+//            if( ! isset( $panel[ $id ][ 'sections' ] ) ) {
+//                return;
+//            }
+//            
+//            foreach( $panel[ $id ]['sections'] as $section_id => $section ) {
+//                $this->create_section( $id, $section_id, $section );
+//            }
+//            
             
         }
         
-        private function create_section( $panel_id, $id, $section ) {
-            
-            $section = new AcidSection( $panel_id, $id, $section );
-            
-        }
-        
-
-        
+//        private function create_section( $panel_id, $id, $section ) {
+//            
+//            $section = new AcidSection( $panel_id, $id, $section );
+//            
+//        }
+//        
         public static function is_panel( $node ) {
 
             return $node == 'panels' ? true : false;
