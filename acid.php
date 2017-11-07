@@ -19,6 +19,9 @@ interface AcidConfig {
 }
 
 
+require_once dirname( __FILE__ ) . '/includes/AcidComponent.php';
+require_once dirname( __FILE__ ) . '/includes/AcidPanel.php';
+require_once dirname( __FILE__ ) . '/includes/AcidSection.php';
 require_once dirname( __FILE__ ) . '/includes/AcidOption.php';
 require_once dirname( __FILE__ ) . '/includes/AcidCustomizer.php';
 

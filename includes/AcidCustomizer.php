@@ -73,28 +73,10 @@ if ( ! class_exists( 'AcidCustomizer' ) ) {
         
         private function create_section( $panel_id, $id, $section ) {
             
-            global $wp_customize;
-            
-            
-            $wp_customize->add_section( $id, array(
-                'title'                 => $section[ 'title' ],
-                'description'           => $section[ 'description' ],
-                'panel'                 => $panel_id
-            ) );
-            
-            foreach( $section['options'] as $option_id => $option ) {
-                
-                $this->create_option( $id, $option_id, $option );
-               
-            }
+            $section = new AcidSection( $panel_id, $id, $section );
             
         }
         
-        private function create_option( $id, $option_id, $option ) {
-            
-            $option = new AcidOption( $id, $option_id, $option );
-            
-        }
 
         
         public static function is_panel( $node ) {
