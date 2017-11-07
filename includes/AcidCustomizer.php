@@ -39,7 +39,7 @@ if ( ! class_exists( 'AcidCustomizer' ) ) {
                     $this->create_panel( $node );
                     
                 } elseif ( self::is_section( $type ) ) {
-                    
+                    // TODO
                 }
                 
             }
@@ -50,37 +50,10 @@ if ( ! class_exists( 'AcidCustomizer' ) ) {
             
             $id = key( $panel );
             
-            $panel = new AcidPanel( null, $id, $panel );
-            
-//            global $wp_customize;
-//            
-//            $id = key( $panel );
-//            
-//            
-//            $wp_customize->add_panel( $id, array(
-//                
-//                'title'             => $panel[ $id ]['title'],
-//                'description'       => $panel[ $id ]['description'],
-//                
-//            ) );
-//            
-//            if( ! isset( $panel[ $id ][ 'sections' ] ) ) {
-//                return;
-//            }
-//            
-//            foreach( $panel[ $id ]['sections'] as $section_id => $section ) {
-//                $this->create_section( $id, $section_id, $section );
-//            }
-//            
+            $panel = new AcidPanel( null, $id, $panel );         
             
         }
-        
-//        private function create_section( $panel_id, $id, $section ) {
-//            
-//            $section = new AcidSection( $panel_id, $id, $section );
-//            
-//        }
-//        
+       
         public static function is_panel( $node ) {
 
             return $node == 'panels' ? true : false;
