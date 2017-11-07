@@ -12,9 +12,9 @@ WordPress.org, Themeforst, Mojo or selling your themes privately. This tool is i
 
 1. Download the latest release of this framework, or click the download button to download as a zip.
 2. Place the entire unzipped folder anywhere in your theme. For example:
-`wp-contents/themes/YOUR_THEME/Acid`
+```wp-contents/themes/YOUR_THEME/Acid```
 3. In your theme's functions.php file (or in any file in your theme where you want to add the code for your theme's options), include the framework's main file like so:
-`include_once get_stylesheet_directory() . '/Acid/acid.php';`
+```include_once get_stylesheet_directory() . '/Acid/acid.php';```
 4. 
 ```
 $acid = acid_instance();
