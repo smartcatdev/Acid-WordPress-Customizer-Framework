@@ -1,22 +1,22 @@
 <?php
 
-if( !class_exists( 'AcidOption' ) ) {
+if( ! class_exists( 'AcidOption' ) ) {
     
     class AcidOption implements AcidComponent {
         
-        private $types = array(
-            'text',
-            'checkbox',
-            'radio',
-            'select',
-            'textarea',
-            'dropdown-pages',
-            'email',
-            'url',
-            'number',
-            'hidden',
-            'date',
-            'image',
+        const TYPES = array(
+            'text'              => 'Text',
+            'checkbox'          => 'Checkbox',
+            'radio'             => 'Radio',
+            'select'            => 'Select',
+            'textarea'          => 'Text area',
+            'dropdown-pages'    => 'Dropdown Pages',
+            'email'             => 'Email',    
+            'url'               => 'URL',
+            'number'            => 'Number',
+            'hidden'            => 'Hidden',
+            'date'              => 'Date',
+            'image'             => 'Image',
         );
         
         const TRANSPORT = 'refresh';
@@ -50,7 +50,7 @@ if( !class_exists( 'AcidOption' ) ) {
         
         private function set_type() {
             
-            if( ! in_array( $this->type, $this->types ) ) {
+            if( ! in_array( $this->type, self::TYPES ) ) {
                 
                 _doing_it_wrong( 'AcidOption->set_type', __( 'You used a non valid option type', 'acid' ), '0.0.1' );
                 
@@ -173,14 +173,15 @@ if( !class_exists( 'AcidOption' ) ) {
                     $callback = 'sanitize_text_field';
                     break;
                 
-                
-                
             }
             
             $this->setting_args[ 'sanitize_callback' ] = $callback;
             
         }
         
+        public static function get_types() {
+            return self::TYPES;
+        }
     
     }
     
