@@ -146,7 +146,7 @@ if( ! class_exists( 'AcidOption' ) ) {
                     $callback = 'esc_url_raw';
                     break;
                 case 'number' :
-                    $callback = 'intval';
+                    $callback = 'absint';
                     break;
                 case 'textarea' :
                     $callback = 'sanitize_textarea';
