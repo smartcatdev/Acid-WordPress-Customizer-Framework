@@ -18,98 +18,103 @@ WordPress.org, Themeforst, Mojo or selling your themes privately. This tool is i
 3. In your theme's functions.php file (or in any file in your theme where you want to add the code for your theme's options), include the framework's main file like so:
 ```include_once get_stylesheet_directory() . '/Acid/acid.php';```
 4. 
-```
+``` PHP
+include_once get_stylesheet_directory() . '/inc/Acid/acid.php';
 $acid = acid_instance();
 
-$acid->config( array (
-    'panels' => array (
-        'theme_frontpage' => array (
-            'title' => __( 'Frontpage', 'textdomain' ),
-            'description' => __( 'Customzize the frontpage', 'textdomain' ),
-            'sections' => array (
-                'slider' => array (
-                    'title' => __( 'Slider', 'textdomain' ),
-                    'description' => __( 'Customize the frontpage slider', 'textdomain' ),
-                    'options' => array (
-                        'slide1_toggle' => array (
-                            'type'      => 'checkbox',
-                            'default'   => __( 'on', 'textdomain' ),
-                            'label'     => __( 'Toggle Slide 1', 'textdomain' ),
-                        ),
-                        'slide1_radio' => array (
-                            'type'      => 'radio',
-                            'default'   => __( 'on', 'textdomain' ),
-                            'label'     => __( 'Toggle Slide 1', 'textdomain' ),
-                            'choices'   => array(
-                                'dark'      => __( 'Dark', 'textdomain' ),
-                                'light'     => __( 'Light', 'textdomain' ),
-                                'blue'      => __( 'Blue', 'textdomain' ),
-                            ),
-                        ),
-                        'slide1_title' => array (
-                            'type'      => 'text',
-                            'default'   => __( 'Slide title', 'textdomain' ),
-                            'label'     => __( 'Enter the slide title', 'textdomain' ),
-                        ),
-                        'slide1_date' => array (
-                            'type'      => 'date',
-                            'default'   => __( 'Slide date', 'textdomain' ),
-                            'label'     => __( 'Enter the slide date', 'textdomain' ),
-                        ),
-                        'slide1_url' => array (
-                            'type'      => 'url',
-                            'default'   => __( 'Slide URL', 'textdomain' ),
-                            'label'     => __( 'Enter the slide URL', 'textdomain' ),
-                        ),
-                        'slide1_number' => array (
-                            'type'      => 'number',
-                            'default'   => __( 'Slide number', 'textdomain' ),
-                            'label'     => __( 'Enter the slide number', 'textdomain' ),
-                        ),
-                        'slide1_textarea' => array (
-                            'type'      => 'textarea',
-                            'default'   => __( 'Slide textarea', 'textdomain' ),
-                            'label'     => __( 'Enter the slide textarea', 'textdomain' ),
-                        ),
-                        'slide1_select' => array (
-                            'type'      => 'select',
-                            'default'   => __( 'Slide select', 'textdomain' ),
-                            'label'     => __( 'Enter the slide select', 'textdomain' ),
-                        ),
-                        'slide1_pages' => array (
-                            'type'      => 'dropdown-pages',
-                            'default'   => __( 'Slide pages', 'textdomain' ),
-                            'label'     => __( 'Enter the slide page', 'textdomain' ),
-                        ),
-                        'slide1_email' => array (
-                            'type'      => 'email',
-                            'default'   => __( 'Slide email', 'textdomain' ),
-                            'label'     => __( 'Enter the slide email', 'textdomain' ),
-                        ),
-                        'slide1_title2' => array (
-                            'type'      => 'text',
-                            'default'   => __( 'Slide title 2', 'textdomain' ),
-                            'label'     => __( 'Enter the slide title 2', 'textdomain' ),
-                        ),
-                        'slide1_subtitle' => array (
-                            'type'      => 'text',
-                            'default'   => __( 'Slide title', 'textdomain' ),
-                            'label'     => __( 'Enter the slide title', 'textdomain' )
-                        ),
-                        'slide1_button_text' => array (
-                            'type'      => 'text',
-                            'default'   => __( 'Button text', 'textdomain' ),
-                            'label'     => __( 'Enter the button text', 'textdomain' )
-                        ),
-                        'slide1_button_text' => array (
-                            'type'      => 'url',
-                            'default'   => __( 'Button url', 'textdomain' ),
-                            'label'     => __( 'Enter the button url', 'textdomain' )
-                        ),
-                    )
+
+$data = array (
+  'panels' => 
+  array (
+    'panel-1' => 
+    array (
+      'title' => 'default label',
+      'description' => 'default description',
+      'sections' => 
+      array (
+        'section-1' => 
+        array (
+          'title' => 'default label',
+          'description' => 'default description',
+          'options' => 
+          array (
+            'text-2' => 
+            array (
+              'type' => 'url',
+              'label' => 'website',
+              'default' => 'https://smartcatdesign.net',
+            ),
+            'text-3' => 
+            array (
+              'type' => 'textarea',
+              'label' => '',
+              'default' => 'Default value',
+            ),
+            'text-4' => 
+            array (
+              'type' => 'number',
+              'label' => '',
+              'default' => 15,
+            ),
+            'select-1' => 
+            array(
+                'type' => 'date',
+                'label' => '',
+                'default' => 'Default value',                
+            ),
+            'select-2' => 
+            array(
+                'type' => 'checkbox',
+                'label' => 'do you want things?',
+                'default' => true,                
+            ),
+            'select-3' => 
+            array(
+                'type' => 'radio',
+                'label' => 'do you want things?',
+                'default' => 'red',
+                'choices'   => array(
+                    'red'   => __( 'Red', 'themeslug' ),
+                    'white' => __( 'white', 'themeslug' ),
+                    'orange' => __( 'Orange', 'themeslug' ),
+                    
                 ),
-            )
-        )
-    )
-) );
+            ),
+            'select-4' => 
+            array(
+                'type' => 'select',
+                'label' => 'Select dropdown',
+                'default' => 'white',
+                'choices'   => array(
+                    'red'   => __( 'Red', 'themeslug' ),
+                    'white' => __( 'white', 'themeslug' ),
+                    'orange' => __( 'Orange', 'themeslug' ),
+                ),
+            ),
+            'select-5' => 
+            array(
+                'type' => 'color',
+                'label' => 'text color',
+                'default' => '#333',
+            ),
+            'select-6' => 
+            array(
+                'type' => 'image',
+                'label' => 'bg image',
+                'default' => 'this',
+            ),
+            'select-7' => 
+            array(
+                'type' => 'dropdown-pages',
+                'label' => 'bg image',
+                'default' => 1,
+            ),
+          ),
+        ),
+      ),
+    ),
+  ),
+);
+
+$acid->config( $data );
 ```

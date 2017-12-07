@@ -108,8 +108,6 @@ if( ! class_exists( 'AcidOption' ) ) {
                     break;
             }
             
-
-            
         }
         
         private function set_args() {
