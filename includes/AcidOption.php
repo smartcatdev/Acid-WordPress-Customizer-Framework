@@ -161,13 +161,13 @@ if( ! class_exists( 'AcidOption' ) ) {
                     $callback = 'acid_sanitize_radio';
                     break;
                 case 'select' :
-                    $callback = 'sanitize_text_field';
+                    $callback = 'acid_sanitize_select';
                     break;
                 case 'dropdown-pages' :
-                    $callback = 'sanitize_text_field';
+                    $callback = 'absint';
                     break;
                 case 'email' : 
-                    $callback = 'sanitize_text_field';
+                    $callback = 'sanitize_email';
                     break;
                 case 'image' : 
                     $callback = 'esc_url_raw';
