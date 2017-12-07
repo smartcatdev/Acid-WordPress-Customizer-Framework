@@ -155,10 +155,10 @@ if( ! class_exists( 'AcidOption' ) ) {
                     $callback = 'acid_sanitize_date';
                     break;
                 case 'checkbox' :
-                    $callback = 'sanitize_text_field';
+                    $callback = 'acid_sanitize_checkbox';
                     break;
                 case 'radio' :
-                    $callback = 'sanitize_text_field';
+                    $callback = 'acid_sanitize_radio';
                     break;
                 case 'select' :
                     $callback = 'sanitize_text_field';

@@ -30,3 +30,19 @@ function acid_sanitize_checkbox( $input ) {
     return ( isset( $input ) ? true : false );
 }
 
+/**
+ * 
+ * Sanitize Radio input
+ * 
+ * @param String $input
+ * @param type $setting
+ * @return boolean
+ */
+function acid_sanitize_radio( $input, $setting ){
+
+    
+    $input = sanitize_key( $input );
+    $choices = $setting->manager->get_control( $setting->id )->choices;
+    return ( array_key_exists( $input, $choices ) ? $input : $setting->default );                
+
+}
