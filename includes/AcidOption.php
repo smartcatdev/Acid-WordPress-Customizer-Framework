@@ -94,7 +94,21 @@ if( ! class_exists( 'AcidOption' ) ) {
             global $wp_customize;
             
             $wp_customize->add_setting( $this->id, $this->setting_args );
-            $wp_customize->add_control( $this->id, $this->control_args );
+            
+            switch( $this->type ) {
+                
+                case 'image' : 
+                    $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, $this->id, $this->control_args ) );
+                    break;
+                case 'color' :
+                    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, $this->id, $this->control_args ) );
+                    break;
+                default :
+                    $wp_customize->add_control( $this->id, $this->control_args );
+                    break;
+            }
+            
+
             
         }
         
@@ -168,6 +182,9 @@ if( ! class_exists( 'AcidOption' ) ) {
                     break;
                 case 'email' : 
                     $callback = 'sanitize_email';
+                    break;
+                case 'color' : 
+                    $callback = 'sanitize_hex_color';
                     break;
                 case 'image' : 
                     $callback = 'esc_url_raw';

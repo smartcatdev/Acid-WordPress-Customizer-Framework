@@ -47,6 +47,13 @@ function acid_sanitize_radio( $input, $setting ){
 
 }
 
+/**
+ * 
+ * @since 0.0.1
+ * @param String $input
+ * @param type $setting
+ * @return boolean
+ */
 function acid_sanitize_select( $input, $setting ){
 
     
