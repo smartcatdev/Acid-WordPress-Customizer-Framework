@@ -1,4 +1,4 @@
-### This project is a work-in-progress, and is not deemed fully stable at this time ###
+### This framework is currently in Beta, please create tickets for any issues or recommendations you find ###
 
 ## Description ##
 Acid is a WordPress theme options framework that allows developers and designers to create theme options in the WordPress Customizer API
