@@ -16,8 +16,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-
-
 interface AcidConfig {
     const THEME_NAME = 'Acid';
     const THEME_SLUG = 'acid';

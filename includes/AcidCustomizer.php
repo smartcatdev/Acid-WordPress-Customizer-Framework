@@ -32,9 +32,11 @@ if ( ! class_exists( 'AcidCustomizer' ) ) {
                 return;
             }
             
+
             foreach ( $this->options['panels'] as $id => $panel ) {
 
                 $this->create_panel( $id, $panel );
+
                 
             }
             
