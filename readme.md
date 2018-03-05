@@ -122,7 +122,6 @@ $data = array (
                             'description'   => __( 'Colorpicker option', 'theme-slug' ),
                             'type'          => 'color',
                             'default'       => '#cc0000'
-
                         ),
 
                         'demo-text'         => array(
@@ -130,7 +129,6 @@ $data = array (
                             'description'   => __( 'Create any text, HTML is not allowed', 'theme-slug' ),
                             'type'          => 'text',
                             'default'       => __( 'Created with Acid Framework', 'theme-slug' )
-
                         ),
 
                         'demo-image'        => array(
@@ -291,6 +289,18 @@ $acid->config( $data );
 ),
 ```
 ![WordPress Customizer Color Picker](assets/images/acid-colorpicker.jpg "Color Picker")
+
+#### Text Field ####
+
+```
+'demo-text'         => array(
+    'label'         => __( 'Enter your title', 'theme-slug' ),
+    'description'   => __( 'Create any text, HTML is not allowed', 'theme-slug' ),
+    'type'          => 'text',
+    'default'       => __( 'Created with Acid Framework', 'theme-slug' )
+),
+```
+![WordPress Customizer Text Field](assets/images/acid-text-field.jpg "Text Field")
 
 
 
