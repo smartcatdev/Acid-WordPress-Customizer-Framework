@@ -54,10 +54,16 @@ if( ! class_exists( 'AcidOption' ) ) {
             
         }
         
+        
+        /**
+         * 
+         * Not currently being used
+         * 
+         * @todo implement this method
+         */
         private function set_type() {
             
             if( ! in_array( $this->type, self::get_types() ) ) {
-                error_log( 'not here' );    
                 _doing_it_wrong( 'AcidOption->set_type', __( 'You used a non valid option type', 'acid' ), '0.0.1' );
                 
             }
@@ -134,6 +140,9 @@ if( ! class_exists( 'AcidOption' ) ) {
                     break;
                 case 'toggle' :
                     $wp_customize->add_control( new AcidToggle( $wp_customize, $this->id, $this->control_args ) );
+                    break;
+                case 'decimal' :
+                    $wp_customize->add_control( new AcidDecimal( $wp_customize, $this->id, $this->control_args ) );
                     break;
                 default :
                     $wp_customize->add_control( $this->id, $this->control_args );
@@ -212,11 +221,14 @@ if( ! class_exists( 'AcidOption' ) ) {
                 case 'url' :
                     $callback = 'esc_url_raw';
                     break;
+                case 'radio-image' :
+                    $callback = 'esc_url_raw';
+                    break;
                 case 'number' :
                     $callback = 'absint';
                     break;
-                case 'decimal' :
-                    $callback = 'acid_sanitize_decimal';
+                case 'range' :
+                    $callback = 'absint';
                     break;
                 case 'textarea' :
                     $callback = 'sanitize_textarea_field';
