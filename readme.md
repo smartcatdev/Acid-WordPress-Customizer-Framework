@@ -11,7 +11,7 @@ To use Acid, simply bundle it in your theme. This framework is GPL-compatible, a
 WordPress.org, Themeforst, Mojo or selling your themes privately. This tool is intended for use by developers, designers and theme creators.
 
 1. Download the latest release of this framework, or click the download button to download as a zip.
-2. Place the entire unzipped folder anywhere in your theme. For example:
+2. Place the entire unzipped folder in your theme's `inc` folder. For example:
 ```wp-contents/themes/YOUR_THEME/inc/Acid```
 3. In your theme's functions.php file (or in any file in your theme where you want to add the code for your theme's options), include the framework's main file like so:
 ```include_once get_stylesheet_directory() . '/inc/Acid/acid.php';```
@@ -30,7 +30,14 @@ WordPress.org, Themeforst, Mojo or selling your themes privately. This tool is i
 $acid_location = get_stylesheet_directory_uri() . '/inc/'; 
 $acid = acid_instance( $acid_location );
 
-
+/**
+*
+* Create your theme options as PHP arrays
+* WordPress Customizer's structure allows you to create Options that are nested in Sections, which are in turn nested in Panels
+* 
+* Acid uses the same structure, allowing you to nest options easily, without needing to reference the section or panel ID
+*
+*/
 $data = array (
     
     'panels'    => array(
@@ -270,6 +277,24 @@ $data = array (
 
 $acid->config( $data );
 ```
+
+## Controls ##
+
+### Color Picker ###
+
+```
+'demo-color'        => array(
+    'label'         => __( 'Pick a color', 'theme-slug' ),
+    'description'   => __( 'Colorpicker option', 'theme-slug' ),
+    'type'          => 'color',
+    'default'       => __( '#cc0000', 'theme-slug' )
+
+),
+```
+![WordPress Customizer Color Picker](assets/images/acid-colorpicker "Color Picker")
+
+
+
 ## Credits ##
 
 1. Customizer Range Control 
