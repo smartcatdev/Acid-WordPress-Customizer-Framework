@@ -23,12 +23,16 @@ if ( ! class_exists( 'AcidPanel' ) ) {
             
             global $wp_customize;
             
-            $wp_customize->add_panel( $this->id, array(
+            if( ! empty( $this->id ) ) {
+
+                $wp_customize->add_panel( $this->id, array(
+
+                    'title'             => $this->title,
+                    'description'       => $this->description,
+
+                ) );
                 
-                'title'             => $this->title,
-                'description'       => $this->description,
-                
-            ) );
+            }
             
             foreach( $this->sections as $section_id => $section ) {
                 $this->create_section( $section_id, $section );
