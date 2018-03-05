@@ -469,6 +469,7 @@ $acid->config( $data );
 ```
 ![WordPress Customizer Email field](assets/images/acid-email.jpg "Email field")
 
+## License ##
 
 
 ## Credits ##
