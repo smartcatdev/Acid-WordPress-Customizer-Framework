@@ -12,106 +12,112 @@ WordPress.org, Themeforst, Mojo or selling your themes privately. This tool is i
 
 1. Download the latest release of this framework, or click the download button to download as a zip.
 2. Place the entire unzipped folder anywhere in your theme. For example:
-```wp-contents/themes/YOUR_THEME/Acid```
+```wp-contents/themes/YOUR_THEME/inc/Acid```
 3. In your theme's functions.php file (or in any file in your theme where you want to add the code for your theme's options), include the framework's main file like so:
-```include_once get_stylesheet_directory() . '/Acid/acid.php';```
-4. 
+```include_once get_stylesheet_directory() . '/inc/Acid/acid.php';```
+4. Sample code
 ``` PHP
-include_once get_stylesheet_directory() . '/inc/Acid/acid.php';
-$acid = acid_instance();
+
+
+$acid = acid_instance( get_stylesheet_directory_uri() . '/inc/' );
 
 
 $data = array (
-  'panels' => 
-  array (
-    'panel-1' => 
-    array (
-      'title' => 'default label',
-      'description' => 'default description',
-      'sections' => 
-      array (
-        'section-1' => 
-        array (
-          'title' => 'default label',
-          'description' => 'default description',
-          'options' => 
-          array (
-            'text-2' => 
-            array (
-              'type' => 'url',
-              'label' => 'website',
-              'default' => 'https://smartcatdesign.net',
-            ),
-            'text-3' => 
-            array (
-              'type' => 'textarea',
-              'label' => '',
-              'default' => 'Default value',
-            ),
-            'text-4' => 
-            array (
-              'type' => 'number',
-              'label' => '',
-              'default' => 15,
-            ),
-            'select-1' => 
-            array(
-                'type' => 'date',
-                'label' => '',
-                'default' => 'Default value',                
-            ),
-            'select-2' => 
-            array(
-                'type' => 'checkbox',
-                'label' => 'do you want things?',
-                'default' => true,                
-            ),
-            'select-3' => 
-            array(
-                'type' => 'radio',
-                'label' => 'do you want things?',
-                'default' => 'red',
-                'choices'   => array(
-                    'red'   => __( 'Red', 'themeslug' ),
-                    'white' => __( 'white', 'themeslug' ),
-                    'orange' => __( 'Orange', 'themeslug' ),
+    
+    'panels'    => array(
+        
+        'panel-demo'      => array(
+            
+            'title          => __( 'Demo Panel', 'theme-slug' ),
+            'description'   => __( 'Panel with some of the Acid options', 'theme-slug' ),
+
+            'sections'       => array(
+                
+                'section-demo'     => array(
                     
-                ),
-            ),
-            'select-4' => 
-            array(
-                'type' => 'select',
-                'label' => 'Select dropdown',
-                'default' => 'white',
-                'choices'   => array(
-                    'red'   => __( 'Red', 'themeslug' ),
-                    'white' => __( 'white', 'themeslug' ),
-                    'orange' => __( 'Orange', 'themeslug' ),
-                ),
-            ),
-            'select-5' => 
-            array(
-                'type' => 'color',
-                'label' => 'text color',
-                'default' => '#333',
-            ),
-            'select-6' => 
-            array(
-                'type' => 'image',
-                'label' => 'bg image',
-                'default' => 'this',
-            ),
-            'select-7' => 
-            array(
-                'type' => 'dropdown-pages',
-                'label' => 'bg image',
-                'default' => 1,
-            ),
-          ),
+                    'title'         => __( 'Demo Section', 'theme-slug' ),
+                    'description'   => __( 'Section to demo Acid options', 'theme-slug' ),
+                    
+                    'options'       => array(
+                        
+                        'toggle-sample'     => array(
+                            
+                            'label'     => __( 'Toggle on or off', 'theme-slug' ),
+                            'type'      => 'toggle',
+                            'default'   => false
+                            
+                        ),
+
+                        'image-sample'      => array(
+                            
+                            'label'     => __( 'select an image', 'theme-slug' ),
+                            'type'      => 'radio-image',
+                            'choices'   => array(
+                                array(
+                                    'label'    => __( 'guy running', 'theme-slug' ),
+                                    'url'       => 'http://localhost:8888/wp-content/uploads/2018/02/sports-2943144_1280.jpg'
+                                ),
+                                array(
+                                    'label'    => __( 'couple', 'theme-slug' ),
+                                    'url'       => 'http://localhost:8888/wp-content/uploads/2018/02/men-2425121_1280.jpg'
+                                ),
+                                array(
+                                    'label'    => __( 'guy running', 'theme-slug' ),
+                                    'url'       => 'http://localhost:8888/wp-content/uploads/2018/02/sports-2943144_1280.jpg'
+                                ),
+                            ),
+                            
+                        ),
+                        
+                        'range-sample'      => array(
+                            
+                            'label'     => __( 'Opacity %' , 'theme-slug' ),
+                            'type'      => 'range',
+                            'default'   => 20,
+                            'min'       => 0,
+                            'max'       => 100,
+                            'step'      => 1
+                            
+                        ),
+                        
+                        'sortable-sample'   => array(
+                            'label'     => __( 'Sortable links', 'theme-slug' ),
+                            'type'      => 'sortable',
+                        ),        
+                        
+                    ),
+                ),   
+            ),  
         ),
-      ),
+        'another-panel'     => array(
+            
+            'title'         => __( 'Another Panel', 'theme-slug' ),
+            'description'   => __( 'This is another panel', 'theme-slug' ),
+
+            'sections'          => array(
+            
+                'title'         => __( 'Section title', 'theme-slug' ),
+                'description'   => __( 'This is another section demo', 'theme-slug' ),
+
+                'options'       => array(
+
+                    'demo-text'         => array(
+                        'label'         => __( 'Enter your title', 'theme-slug' ),
+                        'description'   => __( 'Create any text, HTML is not allowed', 'theme-slug' ),
+                        'type'          => 'text',
+                        'default'       => __( 'Created with Acid Framework', 'theme-slug' )
+
+                    ),
+
+                    'demo-url'          => array(),
+
+
+                ),
+
+            ),
+
+        ),
     ),
-  ),
 );
 
 $acid->config( $data );

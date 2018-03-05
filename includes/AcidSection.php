@@ -8,13 +8,12 @@ if ( ! class_exists( 'AcidSection' ) ) {
         private $section;
         private $panel;
 
-        public function __construct( $panel, $id, $section ) {
+        public function __construct( $panel = null, $id, $section ) {
             
             $this->section = $section;
             $this->id = $id;
             $this->panel = $panel;
             
-            $this->panel = $panel;
             $this->render();
             
         }
