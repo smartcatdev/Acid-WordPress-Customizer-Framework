@@ -135,7 +135,6 @@ $data = array (
                             'label'         => __( 'Upload an image', 'theme-slug' ),
                             'description'   => __( 'Allow users to select an image or upload a new one', 'theme-slug' ),
                             'type'          => 'image',
-
                         ),
                         
                         'image-sample'      => array(
@@ -160,16 +159,13 @@ $data = array (
                         ),
 
                         'demo-url'          => array(
-
                             'label'         => __( 'Enter a URL', 'theme-slug' ),
                             'description'   => __( 'Descriptions are optional', 'theme-slug' ),
                             'type'          => 'url',
                             'default'       => 'https://acidframework.com'
-
                         ),
 
                         'demo-number'       => array(
-
                             'label'         => __( 'Enter a Number', 'theme-slug' ),
                             'description'   => __( 'Numeric value only', 'theme-slug' ),
                             'type'          => 'number',
@@ -177,11 +173,9 @@ $data = array (
                             'min'           => 0,
                             'max'           => 100,
                             'step'          => 5
-
                         ),
 
                         'demo-range'        => array(
-
                             'label'         => __( 'Enter a Number', 'theme-slug' ),
                             'description'   => __( 'Numeric value only', 'theme-slug' ),
                             'type'          => 'range',
@@ -189,7 +183,6 @@ $data = array (
                             'min'           => 0,
                             'max'           => 100,
                             'step'          => 5
-
                         ),
                         
                         'demo-textarea'         => array(
@@ -197,14 +190,12 @@ $data = array (
                             'description'   => __( 'Create any text, HTML is not allowed', 'theme-slug' ),
                             'type'          => 'textarea',
                             'default'       => __( 'Created with Acid Framework', 'theme-slug' )
-
                         ),
                         
                         'demo-date'         => array(
                             'label'         => __( 'Enter a date', 'theme-slug' ),
                             'type'          => 'date',
                             'default'       => '2018-03-16'
-
                         ),
                         
                         'demo-checkbox'         => array(
@@ -212,7 +203,6 @@ $data = array (
                             'description'   => __( 'Use this control for options that are togglelable', 'theme-slug' ),
                             'type'          => 'checkbox',
                             'default'       => false
-
                         ),
                         
                         'demo-toggle'       => array(
@@ -220,7 +210,6 @@ $data = array (
                             'description'   => __( 'Same as a checkbox, but looks more cool', 'theme-slug' ),
                             'type'          => 'toggle',
                             'default'       => true
-
                         ),
                         
                         'demo-radio'        => array(
@@ -234,7 +223,6 @@ $data = array (
                                 'green'     => __( 'Green', 'theme-slug' ),
                                 'purple'    => __( 'purple', 'theme-slug' ),
                             ),
-
                         ),
                         
                         'demo-select'       => array(
@@ -247,20 +235,17 @@ $data = array (
                                 'green'     => __( 'Green', 'theme-slug' ),
                                 'purple'    => __( 'purple', 'theme-slug' ),
                             ),
-
                         ),
                         
                         'demo-pages'        => array(
                             'label'         => __( 'Select a page', 'theme-slug' ),
                             'type'          => 'dropdown-pages',
-
                         ),
                         
                         'demo-email'        => array(
                             'label'         => __( 'Enter email address', 'theme-slug' ),
                             'type'          => 'email',
                             'default'       => get_option( 'admin_email' ),
-
                         ),
 
                     ),
@@ -301,6 +286,188 @@ $acid->config( $data );
 ),
 ```
 ![WordPress Customizer Text Field](assets/images/acid-text-field.jpg "Text Field")
+
+#### Image Upload ####
+
+```
+'demo-image'        => array(
+    'label'         => __( 'Upload an image', 'theme-slug' ),
+    'description'   => __( 'Allow users to select an image or upload a new one', 'theme-slug' ),
+    'type'          => 'image',
+),
+```
+![WordPress Customizer Image Upload](assets/images/acid-image-upload.jpg "Image Upload")
+
+#### Image Radio ####
+
+```
+'demo-image-toggle'      => array(
+
+    'label'     => __( 'select an image', 'theme-slug' ),
+    'type'      => 'radio-image',
+    'choices'   => array(
+        array(
+            'label'    => __( 'guy running', 'theme-slug' ),
+            'url'       => AcidConfig::assets_url() . 'images/smartcat-icon.jpg',
+        ),
+        array(
+            'label'    => __( 'couple', 'theme-slug' ),
+            'url'       => AcidConfig::assets_url() . 'images/smartcat-icon.jpg',
+        ),
+        array(
+            'label'    => __( 'guy running', 'theme-slug' ),
+            'url'       => AcidConfig::assets_url() . 'images/smartcat-icon.jpg',
+        ),
+    ),
+
+),
+```
+![WordPress Customizer Image Toggle](assets/images/acid-image-radio.jpg "Image radio")
+
+#### URL ####
+
+```
+'demo-url'          => array(
+    'label'         => __( 'Enter a URL', 'theme-slug' ),
+    'description'   => __( 'Descriptions are optional', 'theme-slug' ),
+    'type'          => 'url',
+    'default'       => 'https://acidframework.com'
+),
+```
+![WordPress Customizer URL](assets/images/acid-url.jpg "URL field")
+
+#### Number ####
+
+```
+'demo-number'       => array(
+    'label'         => __( 'Enter a Number', 'theme-slug' ),
+    'description'   => __( 'Numeric value only', 'theme-slug' ),
+    'type'          => 'number',
+    'default'       => 10,
+    'min'           => 0, // minimum allowed value
+    'max'           => 100, // max allowed value
+    'step'          => 5 // increment value
+),
+```
+![WordPress Customizer Number](assets/images/acid-number.jpg "Number field")
+
+#### Range Slider ####
+
+```
+'demo-range'        => array(
+    'label'         => __( 'Enter a Number', 'theme-slug' ),
+    'description'   => __( 'Numeric value only', 'theme-slug' ),
+    'type'          => 'range',
+    'default'       => 10,
+    'min'           => 0, // minimum allowed value
+    'max'           => 100, // max allowed value
+    'step'          => 5 // increment value
+),
+```
+![WordPress Customizer Number Range](assets/images/acid-range.jpg "Number Range field")
+
+#### Text Area ####
+
+```
+'demo-textarea'         => array(
+    'label'         => __( 'Enter text', 'theme-slug' ),
+    'description'   => __( 'Create any text, HTML is not allowed', 'theme-slug' ),
+    'type'          => 'textarea',
+    'default'       => __( 'Created with Acid Framework', 'theme-slug' )
+),
+```
+![WordPress Customizer Textarea](assets/images/acid-textarea.jpg "Textarea field")
+
+#### Date ####
+
+```
+'demo-date'         => array(
+    'label'         => __( 'Enter a date', 'theme-slug' ),
+    'type'          => 'date',
+    'default'       => '2018-03-16'
+),
+```
+![WordPress Customizer Date](assets/images/acid-date.jpg "Date field")
+
+#### Checkbox ####
+
+```
+'demo-checkbox'         => array(
+    'label'         => __( 'Yes or no ?', 'theme-slug' ),
+    'description'   => __( 'Use this control for options that are togglelable', 'theme-slug' ),
+    'type'          => 'checkbox',
+    'default'       => false
+),
+```
+![WordPress Customizer Checkbox](assets/images/acid-checkbox.jpg "Checkbox field")
+
+#### Toggle ####
+
+```
+'demo-toggle'       => array(
+    'label'         => __( 'On or Off ?', 'theme-slug' ),
+    'description'   => __( 'Same as a checkbox, but looks more cool', 'theme-slug' ),
+    'type'          => 'toggle',
+    'default'       => true
+),
+```
+![WordPress Customizer Toggle](assets/images/acid-toggle.jpg "Toggle field")
+
+#### Radio ####
+
+```
+'demo-radio'        => array(
+    'label'         => __( 'Select one of many', 'theme-slug' ),
+    'description'   => __( 'Limits user to one selection', 'theme-slug' ),
+    'type'          => 'radio',
+    'default'       => 'red',
+    'choices'       => array(
+        'red'       => __( 'Red', 'theme-slug' ),
+        'blue'      => __( 'Blue', 'theme-slug' ),
+        'green'     => __( 'Green', 'theme-slug' ),
+        'purple'    => __( 'purple', 'theme-slug' ),
+    ),
+),
+```
+![WordPress Customizer Radio](assets/images/acid-radio.jpg "Radio field")
+
+#### Select Dropdown ####
+
+```
+'demo-select'       => array(
+    'label'         => __( 'Select from dropdown', 'theme-slug' ),
+    'type'          => 'select',
+    'default'       => 'purple',
+    'choices'       => array(
+        'red'       => __( 'Red', 'theme-slug' ),
+        'blue'      => __( 'Blue', 'theme-slug' ),
+        'green'     => __( 'Green', 'theme-slug' ),
+        'purple'    => __( 'purple', 'theme-slug' ),
+    ),
+),
+```
+![WordPress Customizer select dropdown](assets/images/acid-dropdown.jpg "Select Dropdown field")
+
+#### Pages Dropdown ####
+
+```
+'demo-pages'        => array(
+    'label'         => __( 'Select a page', 'theme-slug' ),
+    'type'          => 'dropdown-pages',
+),
+```
+![WordPress Customizer Pages Dropdown](assets/images/acid-pages.jpg "Page Dropdown field")
+
+#### Email ####
+
+```
+'demo-email'        => array(
+    'label'         => __( 'Enter email address', 'theme-slug' ),
+    'type'          => 'email',
+    'default'       => get_option( 'admin_email' ),
+),
+```
+![WordPress Customizer Email field](assets/images/acid-email.jpg "Email field")
 
 
 
