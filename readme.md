@@ -116,3 +116,20 @@ $data = array (
 
 $acid->config( $data );
 ```
+## Credits ##
+
+1. Customizer Range Control 
+    https://github.com/soderlind/class-customizer-range-value-control
+    MIT
+
+2. Radio Image Control
+    https://gist.github.com/justintadlock/2a9e3312a6fe10e8dc28
+    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+    GPL
+
+3. Toggle Control
+    https://github.com/soderlind/class-customizer-toggle-control
+    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+    GPL
+
+
