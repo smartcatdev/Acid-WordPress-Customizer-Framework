@@ -4,7 +4,6 @@ if( ! class_exists( 'AcidOption' ) ) {
     
     class AcidOption implements AcidComponent {
         
-        
         const TRANSPORT = 'refresh';
         
         private $section;
@@ -141,8 +140,8 @@ if( ! class_exists( 'AcidOption' ) ) {
                 case 'toggle' :
                     $wp_customize->add_control( new AcidToggle( $wp_customize, $this->id, $this->control_args ) );
                     break;
-                case 'decimal' :
-                    $wp_customize->add_control( new AcidDecimal( $wp_customize, $this->id, $this->control_args ) );
+                case 'sortable' :
+                    $wp_customize->add_control( new AcidSortable( $wp_customize, $this->id, $this->control_args ) );
                     break;
                 default :
                     $wp_customize->add_control( $this->id, $this->control_args );
