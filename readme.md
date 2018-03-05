@@ -291,7 +291,7 @@ $acid->config( $data );
 
 ),
 ```
-![WordPress Customizer Color Picker](assets/images/acid-colorpicker "Color Picker")
+![WordPress Customizer Color Picker](assets/images/acid-colorpicker.jpg "Color Picker")
 
 
 
