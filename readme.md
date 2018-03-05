@@ -121,7 +121,7 @@ $data = array (
                             'label'         => __( 'Pick a color', 'theme-slug' ),
                             'description'   => __( 'Colorpicker option', 'theme-slug' ),
                             'type'          => 'color',
-                            'default'       => __( '#cc0000', 'theme-slug' )
+                            'default'       => '#cc0000'
 
                         ),
 
@@ -280,15 +280,14 @@ $acid->config( $data );
 
 ## Controls ##
 
-### Color Picker ###
+#### Color Picker ####
 
 ```
 'demo-color'        => array(
     'label'         => __( 'Pick a color', 'theme-slug' ),
     'description'   => __( 'Colorpicker option', 'theme-slug' ),
     'type'          => 'color',
-    'default'       => __( '#cc0000', 'theme-slug' )
-
+    'default'       => '#cc0000'
 ),
 ```
 ![WordPress Customizer Color Picker](assets/images/acid-colorpicker.jpg "Color Picker")
