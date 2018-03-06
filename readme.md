@@ -483,9 +483,4 @@ $acid->config( $data );
     http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
     GPL
 
-3. Toggle Control
-    https://github.com/soderlind/class-customizer-toggle-control
-    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
-    GPL
-
 

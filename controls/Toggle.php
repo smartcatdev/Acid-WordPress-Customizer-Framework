@@ -5,12 +5,6 @@ add_action( 'customize_register', function() {
 
         public $type = 'toggle';
 
-        /**
-         * Render the control's content.
-         *
-         * @author soderlind
-         * @version 1.2.0
-         */
         public function render_content() {
             ?>
 
