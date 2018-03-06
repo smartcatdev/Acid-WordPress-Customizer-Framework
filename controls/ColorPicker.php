@@ -6,11 +6,7 @@ add_action( 'customize_register', function() {
 
         public $type = 'color-picker';
 
-        public function render_content() {
-            
-            var_dump( $this->choices );
-            
-            ?>
+        public function render_content() { ?>
 
             <label>
                 <span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
@@ -40,11 +36,6 @@ add_action( 'customize_register', function() {
                 <?php
             }
 
-            /**
-             * Enqueue scripts/styles.
-             *
-             * @since 3.4.0
-             */
             public function enqueue() {
                 
                 add_action( 'customize_controls_print_styles', array ( $this, 'print_styles' ) );
