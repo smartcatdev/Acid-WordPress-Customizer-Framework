@@ -47,6 +47,7 @@ require_once dirname( __FILE__ ) . '/includes/AcidSection.php';
 require_once dirname( __FILE__ ) . '/includes/AcidOption.php';
 require_once dirname( __FILE__ ) . '/includes/AcidCustomizer.php';
 require_once dirname( __FILE__ ) . '/includes/functions-sanitization.php';
+require_once dirname( __FILE__ ) . '/includes/functions-option.php';
 
 function acid_instance( $url ) {
     

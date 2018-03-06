@@ -63,6 +63,3 @@ function acid_sanitize_select( $input, $setting ){
 
 }
 
-function acid_sanitize_decimal( $input ) {
-    return filter_var( $input, FILTER_SANITIZE_NUMBER_FLOAT );
-}
