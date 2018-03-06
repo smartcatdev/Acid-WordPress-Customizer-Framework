@@ -238,9 +238,6 @@ if( ! class_exists( 'AcidOption' ) ) {
                 case 'checkbox' :
                     $callback = 'acid_sanitize_checkbox';
                     break;
-                case 'toggle' :
-                    $callback = 'acid_sanitize_checkbox';
-                    break;
                 case 'radio' :
                     $callback = 'acid_sanitize_radio';
                     break;
