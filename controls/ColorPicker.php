@@ -80,7 +80,7 @@ add_action( 'customize_register', function() {
                 .colorpicker-field label {
                     opacity: 0.5;
                     display: inline-block;
-                    width: 60px;
+                    width: 90%;
                     background-color: #e4e4e4;
                     color: rgba(0, 0, 0, 0.6);
                     font-size: 14px;
