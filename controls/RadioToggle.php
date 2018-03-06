@@ -13,24 +13,24 @@ add_action( 'customize_register', function() {
                 <span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
             </label>
             
-            <div>
+            <div class="switch-field">
 
-                <div class="switch-field">
-                    
-                    <?php if ( !empty( $this->description ) ) : ?>
-                        <div class="switch-title description customize-control-description"><?php echo $this->description; ?></div>
-                    <?php endif; ?>
+                <?php if ( !empty( $this->description ) ) : ?>
+                    <div class="switch-title description customize-control-description"><?php echo $this->description; ?></div>
+                <?php endif; ?>
 
-                    <?php
-                    $ctr = 0;
-                    foreach( $this->choices as $key => $val ) : $ctr++; ?>
-                        
+                <?php
+                $ctr = 0;
+                foreach( $this->choices as $key => $val ) : $ctr++; ?>
+                    <div class="choice-wrap">
                         <input name="<?php echo esc_attr( $this->id ); ?>" <?php $this->link() ?> type="radio" id="switch_<?php echo esc_attr( $key) ?>" value="<?php echo esc_attr( $key ); ?>" <?php checked( $this->value(), $key ); ?>/>
                         <label for="switch_<?php echo esc_attr( $key) ?>"><?php echo esc_attr( $val ); ?></label>
-                    <?php endforeach; ?>
-                      
-                </div>
-                
+                    </div>
+                    <?php if ( $ctr < count( $this->choices ) ) : ?>
+                        <div class="clear"></div>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+
             </div>
                     
                 <?php
@@ -53,11 +53,12 @@ add_action( 'customize_register', function() {
             <style type="text/css" id="acid-toggle-css">
 
                 .switch-field {
-                    overflow: hidden;
+                    /* overflow: hidden;*/
+                    padding: 0px 1px;
                 }
 
                 .switch-title {
-                  margin-bottom: 6px;
+                    margin-bottom: 6px;
                 }
 
                 .switch-field input {
@@ -74,23 +75,25 @@ add_action( 'customize_register', function() {
                 }
 
                 .switch-field label {
-                  display: inline-block;
-                  width: 60px;
-                  background-color: #e4e4e4;
-                  color: rgba(0, 0, 0, 0.6);
-                  font-size: 14px;
-                  font-weight: normal;
-                  text-align: center;
-                  text-shadow: none;
-                  padding: 6px 14px;
-                  border: 1px solid rgba(0, 0, 0, 0.2);
-                  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
-                  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
-                  -webkit-transition: all 0.1s ease-in-out;
-                  -moz-transition:    all 0.1s ease-in-out;
-                  -ms-transition:     all 0.1s ease-in-out;
-                  -o-transition:      all 0.1s ease-in-out;
-                  transition:         all 0.1s ease-in-out;
+                    display: block;
+                    width: 100%;
+                    color: rgba(0, 0, 0, 0.5);
+                    font-size: 14px;
+                    font-weight: normal;
+                    text-align: center;
+                    text-shadow: none;
+                    padding: 7.5px 0px;
+                    border: 1px solid rgba(0, 0, 0, 0.25);
+                    border-bottom: none;
+                    -webkit-box-shadow: none;
+                    box-shadow: none;
+                    border-radius: 0 !important;
+                    -webkit-transition: all 0.3s ease-in-out;
+                    -moz-transition: all 0.3s ease-in-out;
+                    -ms-transition: all 0.3s ease-in-out;
+                    -o-transition: all 0.3s ease-in-out;
+                    transition: all 0.3s ease-in-out;
+                    position: relative;
                 }
 
                 .switch-field label:hover {
@@ -98,18 +101,74 @@ add_action( 'customize_register', function() {
                 }
 
                 .switch-field input:checked + label {
-                  background-color: #A5DC86;
-                  -webkit-box-shadow: none;
-                  box-shadow: none;
+                    background-color: #fdfdfd;
+                    border-left: 3px solid;
+                    border-right: 3px solid;
+                    width: calc(100% - 4px);
+                    color: #2196F3;
                 }
-
+                
                 .switch-field label:first-of-type {
-                  border-radius: 4px 0 0 4px;
+                    border-radius: 4px 0 0 4px;
                 }
 
                 .switch-field label:last-of-type {
-                  border-radius: 0 4px 4px 0;
+                    border-radius: 0 4px 4px 0;
                 }
+                
+                li.customize-control-radio-toggle .switch-field .choice-wrap {
+                    position: relative;
+                    max-width: 100%;
+                    margin-bottom: 5px;
+                }
+                
+                li.customize-control-radio-toggle .switch-field .choice-wrap:first-of-type label {
+                    border-radius: 4px 4px 0 0 !important;
+                }
+                
+                li.customize-control-radio-toggle .switch-field .choice-wrap:last-of-type label {
+                    border-bottom: thin solid #b9b9b9;
+                    border-radius: 0 0 4px 4px !important;
+                }
+                
+                .switch-field input + label:before, 
+                .switch-field input + label:after { 
+                    content: "";
+                    position: absolute;
+                    width: 100%;
+                    height: 2px;
+                    left: 0;
+                    opacity: 0;
+                    background-color: #2196F3;
+                    visibility: hidden;
+                    -webkit-transform: scaleX(1);
+                    transform: scaleX(1);
+                    -webkit-transition: all 0.3s ease-in-out;
+                    -moz-transition:  all 0.3s ease-in-out;
+                    -o-transition:  all 0.3s ease-in-out;
+                    transition:  all 0.3s ease-in-out;
+                }
+                
+                .switch-field input + label:before {
+                    top: 0;
+                }
+                
+                .switch-field input + label:after {
+                    bottom: 0;
+                }
+                
+                .switch-field input:checked + label:before, 
+                .switch-field input:checked + label:after {
+                    visibility: visible;
+                    opacity: 1;
+                    -webkit-transform: scaleX(1);
+                            transform: scaleX(1);
+                }
+                
+                .switch-field input:checked + label {
+                    background-color: #fafafa;
+                }
+                
             </style>
 
         <?php
