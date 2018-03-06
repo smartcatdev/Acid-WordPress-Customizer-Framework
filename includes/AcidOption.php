@@ -140,6 +140,9 @@ if( ! class_exists( 'AcidOption' ) ) {
                 case 'toggle' :
                     $wp_customize->add_control( new AcidToggle( $wp_customize, $this->id, $this->control_args ) );
                     break;
+                case 'radio-toggle' :
+                    $wp_customize->add_control( new AcidRadioToggle( $wp_customize, $this->id, $this->control_args ) );
+                    break;
                 case 'sortable' :
                     $wp_customize->add_control( new AcidSortable( $wp_customize, $this->id, $this->control_args ) );
                     break;
