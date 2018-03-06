@@ -41,7 +41,7 @@ function acid_sanitize_checkbox( $input ) {
 function acid_sanitize_radio( $input, $setting ){
 
     
-//    $input = sanitize_key( $input );
+    $input = sanitize_key( $input );
     $choices = $setting->manager->get_control( $setting->id )->choices;
     return ( array_key_exists( $input, $choices ) ? $input : $setting->default );                
 
@@ -57,9 +57,20 @@ function acid_sanitize_radio( $input, $setting ){
 function acid_sanitize_select( $input, $setting ){
 
     
-//    $input = sanitize_key( $input );
+    $input = sanitize_key( $input );
     $choices = $setting->manager->get_control( $setting->id )->choices;
     return ( array_key_exists( $input, $choices ) ? $input : $setting->default );                
 
 }
 
+
+function acid_sanitize_colorpicker( $input, $setting ) {
+    
+    $input = sanitize_key( $input );
+    $input = '#' . $input;
+    
+    
+    $choices = $setting->manager->get_control( $setting->id )->choices;
+    return ( array_key_exists( $input, $choices ) ? $input : $setting->default );  
+    
+}

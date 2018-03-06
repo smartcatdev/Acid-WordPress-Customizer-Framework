@@ -131,6 +131,9 @@ if( ! class_exists( 'AcidOption' ) ) {
                 case 'color' :
                     $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, $this->id, $this->control_args ) );
                     break;
+                case 'color-picker' :
+                    $wp_customize->add_control( new AcidColorPicker( $wp_customize, $this->id, $this->control_args ) );
+                    break;
                 case 'radio-image' :
                     $wp_customize->add_control( new AcidRadioImage( $wp_customize, $this->id, $this->control_args ) );
                     break;
@@ -255,6 +258,9 @@ if( ! class_exists( 'AcidOption' ) ) {
                     break;
                 case 'color' : 
                     $callback = 'sanitize_hex_color';
+                    break;
+                case 'color-picker' : 
+                    $callback = 'acid_sanitize_colorpicker';
                     break;
                 case 'image' : 
                     $callback = 'esc_url_raw';

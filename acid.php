@@ -41,6 +41,7 @@ require_once dirname( __FILE__ ) . '/controls/RadioToggle.php';
 require_once dirname( __FILE__ ) . '/controls/Range.php';
 require_once dirname( __FILE__ ) . '/controls/Toggle.php';
 require_once dirname( __FILE__ ) . '/controls/Sortable.php';
+require_once dirname( __FILE__ ) . '/controls/ColorPicker.php';
 
 require_once dirname( __FILE__ ) . '/includes/AcidComponent.php';
 require_once dirname( __FILE__ ) . '/includes/AcidPanel.php';
