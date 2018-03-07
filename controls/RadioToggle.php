@@ -18,19 +18,19 @@ add_action( 'customize_register', function() {
                 <?php if ( !empty( $this->description ) ) : ?>
                     <div class="switch-title description customize-control-description"><?php echo $this->description; ?></div>
                 <?php endif; ?>
-
+                    
                 <?php
                 $ctr = 0;
                 foreach( $this->choices as $key => $val ) : $ctr++; ?>
                     <div class="choice-wrap">
-                        <input name="<?php echo esc_attr( $this->id ); ?>" <?php $this->link() ?> type="radio" id="switch_<?php echo esc_attr( $key) ?>" value="<?php echo esc_attr( $key ); ?>" <?php checked( $this->value(), $key ); ?>/>
-                        <label for="switch_<?php echo esc_attr( $key) ?>"><?php echo esc_attr( $val ); ?></label>
+                        <input name="<?php echo esc_attr( $this->id ); ?>" <?php $this->link() ?> type="radio" id="switch_<?php echo esc_attr( $key . '_' . $this->id ) ?>" value="<?php echo esc_attr( $key ); ?>" <?php checked( $this->value(), $key ); ?>/>
+                        <label for="switch_<?php echo esc_attr( $key . '_' . $this->id ) ?>"><?php echo esc_attr( $val ); ?></label>
                     </div>
                     <?php if ( $ctr < count( $this->choices ) ) : ?>
                         <div class="clear"></div>
                     <?php endif; ?>
                 <?php endforeach; ?>
-
+                        
             </div>
                     
                 <?php
@@ -130,7 +130,7 @@ add_action( 'customize_register', function() {
                     border-bottom: thin solid #b9b9b9;
                     border-radius: 0 0 4px 4px !important;
                 }
-                
+
                 .switch-field input + label:before, 
                 .switch-field input + label:after { 
                     content: "";
