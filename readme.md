@@ -3,8 +3,11 @@ Acid is a WordPress theme options framework that allows developers and designers
 with very little effort. This framework takes all the stress away from managing theme options, and allows you to focus more on developing your theme,
 rather than spending endless hours creating and managing your theme options.
 
-Acid includes all the default WordPress Customizer API options, and over time, we will be adding more custom options that fully adhere to the WordPress.org
-theme check requirements. 
+Acid includes all the default WordPress Customizer API options, and over time, I will be adding more custom options that fully adhere to the WordPress.org
+theme check requirements.
+
+You can use this framework if you're building themes for WordPress.org, Themeforest, MoJo Themes, or for your clients. The license allows you to use
+in personal or commercial themes.
 
 ## Installation ##
 To use Acid, simply bundle it in your theme. This framework is GPL-compatible, allowing you to include it in your theme whether you're creating fee themes on 
@@ -46,7 +49,7 @@ $data = array (
             
             'sections'       => array(
                 
-                'title_tagline'     => array(
+                'custom_section'     => array(
                     
                     'title'         => __( 'first sample section', 'theme-slug' ),
                     'description'   => __( 'desc in first sample', 'theme-slug' ),
@@ -116,12 +119,27 @@ $data = array (
                     'description'   => __( 'This is another section demo', 'theme-slug' ),
 
                     'options'       => array(
+                        
+                        
+                        'demo-decimal1'       => array(
+
+                            'label'         => __( 'Enter a Decimal', 'theme-slug' ),
+                            'description'   => __( 'Decimal', 'theme-slug' ),
+                            'type'          => 'range',
+                            'default'       => 10,
+                            'min'           => 0,
+                            'max'           => 100,
+                            'step'          => 5
+
+                        ),
+                        
 
                         'demo-color'        => array(
                             'label'         => __( 'Pick a color', 'theme-slug' ),
                             'description'   => __( 'Colorpicker option', 'theme-slug' ),
                             'type'          => 'color',
-                            'default'       => '#cc0000'
+                            'default'       => __( '#cc0000', 'theme-slug' )
+
                         ),
 
                         'demo-text'         => array(
@@ -129,12 +147,14 @@ $data = array (
                             'description'   => __( 'Create any text, HTML is not allowed', 'theme-slug' ),
                             'type'          => 'text',
                             'default'       => __( 'Created with Acid Framework', 'theme-slug' )
+
                         ),
 
                         'demo-image'        => array(
                             'label'         => __( 'Upload an image', 'theme-slug' ),
                             'description'   => __( 'Allow users to select an image or upload a new one', 'theme-slug' ),
                             'type'          => 'image',
+
                         ),
                         
                         'image-sample'      => array(
@@ -159,13 +179,16 @@ $data = array (
                         ),
 
                         'demo-url'          => array(
+
                             'label'         => __( 'Enter a URL', 'theme-slug' ),
                             'description'   => __( 'Descriptions are optional', 'theme-slug' ),
                             'type'          => 'url',
                             'default'       => 'https://acidframework.com'
+
                         ),
 
                         'demo-number'       => array(
+
                             'label'         => __( 'Enter a Number', 'theme-slug' ),
                             'description'   => __( 'Numeric value only', 'theme-slug' ),
                             'type'          => 'number',
@@ -173,9 +196,11 @@ $data = array (
                             'min'           => 0,
                             'max'           => 100,
                             'step'          => 5
+
                         ),
 
                         'demo-range'        => array(
+
                             'label'         => __( 'Enter a Number', 'theme-slug' ),
                             'description'   => __( 'Numeric value only', 'theme-slug' ),
                             'type'          => 'range',
@@ -183,6 +208,7 @@ $data = array (
                             'min'           => 0,
                             'max'           => 100,
                             'step'          => 5
+
                         ),
                         
                         'demo-textarea'         => array(
@@ -190,12 +216,14 @@ $data = array (
                             'description'   => __( 'Create any text, HTML is not allowed', 'theme-slug' ),
                             'type'          => 'textarea',
                             'default'       => __( 'Created with Acid Framework', 'theme-slug' )
+
                         ),
                         
                         'demo-date'         => array(
                             'label'         => __( 'Enter a date', 'theme-slug' ),
                             'type'          => 'date',
                             'default'       => '2018-03-16'
+
                         ),
                         
                         'demo-checkbox'         => array(
@@ -203,6 +231,7 @@ $data = array (
                             'description'   => __( 'Use this control for options that are togglelable', 'theme-slug' ),
                             'type'          => 'checkbox',
                             'default'       => false
+
                         ),
                         
                         'demo-toggle'       => array(
@@ -210,6 +239,45 @@ $data = array (
                             'description'   => __( 'Same as a checkbox, but looks more cool', 'theme-slug' ),
                             'type'          => 'toggle',
                             'default'       => true
+
+                        ),
+                        
+                        'demo-radio-toggle'       => array(
+                            'label'         => __( 'Which option do you want?', 'theme-slug' ),
+                            'description'   => __( 'Radio toggle between various things', 'theme-slug' ),
+                            'type'          => 'radio-toggle',
+                            'default'       => true,
+                            'choices'       => array(
+                                'one'       => __( 'One', 'theme-slug' ),
+                                'two'       => __( 'Two', 'theme-slug' ),
+                                'three'       => __( 'Three', 'theme-slug' ),
+                            ),
+
+                        ),
+                        
+                        'demo-color-picker' => array(
+                            
+                            'label'         => __( 'Select a color', 'theme-slug' ),
+                            'description'   => __( 'Which color do you want?', 'theme-slug' ),
+                            'type'          => 'color-select',
+                            'default'       => true,
+                            'choices'       => array(
+                                '#06AED5'    => __( 'Blue 1', 'theme-slug' ),
+                                '#086788'    => __( 'Blue 2', 'theme-slug' ),
+                                '#38618C'    => __( 'Blue 3', 'theme-slug' ),
+                                '#FFBF29'     => __( 'Yellow 1', 'theme-slug' ),
+                                '#FFF1D0'     => __( 'Baige 1', 'theme-slug' ),
+                                '#DD1C1A'     => __( 'Red 1', 'theme-slug' ),
+                                '#FF5964'     => __( 'Red 2', 'theme-slug' ),
+                            ),                            
+                            
+                        ),
+                        
+                        'demo-html'         => array(
+                            'label'         => __( 'Enter HTML Content', 'theme-slug' ),
+                            'type'          => 'html',
+                            'default'       => __( 'Enter any content here', 'theme-slug' ),
+                            
                         ),
                         
                         'demo-radio'        => array(
@@ -223,6 +291,7 @@ $data = array (
                                 'green'     => __( 'Green', 'theme-slug' ),
                                 'purple'    => __( 'purple', 'theme-slug' ),
                             ),
+
                         ),
                         
                         'demo-select'       => array(
@@ -235,25 +304,25 @@ $data = array (
                                 'green'     => __( 'Green', 'theme-slug' ),
                                 'purple'    => __( 'purple', 'theme-slug' ),
                             ),
+
                         ),
                         
                         'demo-pages'        => array(
                             'label'         => __( 'Select a page', 'theme-slug' ),
                             'type'          => 'dropdown-pages',
+
                         ),
                         
                         'demo-email'        => array(
                             'label'         => __( 'Enter email address', 'theme-slug' ),
                             'type'          => 'email',
                             'default'       => get_option( 'admin_email' ),
+
                         ),
 
-                    ),
-                                        
+                    ),                      
                 ),
-
             ),
-
         ),
     ),
 );
@@ -274,6 +343,30 @@ $acid->config( $data );
 ),
 ```
 ![WordPress Customizer Color Picker](assets/images/acid-colorpicker.jpg "Color Picker")
+
+
+#### Color Select ####
+
+```
+'demo-color-select' => array(
+
+    'label'         => __( 'Select a color', 'theme-slug' ),
+    'description'   => __( 'Which color do you want?', 'theme-slug' ),
+    'type'          => 'color-select',
+    'default'       => true,
+    'choices'       => array(
+        '#06AED5'    => __( 'Blue 1', 'theme-slug' ),
+        '#086788'    => __( 'Blue 2', 'theme-slug' ),
+        '#38618C'    => __( 'Blue 3', 'theme-slug' ),
+        '#FFBF29'     => __( 'Yellow 1', 'theme-slug' ),
+        '#FFF1D0'     => __( 'Baige 1', 'theme-slug' ),
+        '#DD1C1A'     => __( 'Red 1', 'theme-slug' ),
+        '#FF5964'     => __( 'Red 2', 'theme-slug' ),
+    ),                            
+
+),
+```
+![WordPress Customizer Color Select](assets/images/acid-color-select.jpg "Color Select")
 
 #### Text Field ####
 
@@ -323,6 +416,34 @@ $acid->config( $data );
 ),
 ```
 ![WordPress Customizer Image Toggle](assets/images/acid-image-radio.jpg "Image radio")
+
+#### HTML Editor ( TinyMCE ) ####
+
+```
+'demo-html'         => array(
+    'label'         => __( 'Enter HTML Content', 'theme-slug' ),
+    'type'          => 'html',
+    'default'       => __( 'Enter any content here', 'theme-slug' ),
+),
+```
+![WordPress Customizer TinyMCE HTML Editor](assets/images/acid-html-editor.jpg "HTML Editor")
+
+#### Radio Toggle ####
+
+```
+'demo-radio-toggle'       => array(
+    'label'         => __( 'Which option do you want?', 'theme-slug' ),
+    'description'   => __( 'Radio toggle between various things', 'theme-slug' ),
+    'type'          => 'radio-toggle',
+    'default'       => true,
+    'choices'       => array(
+        'one'       => __( 'One', 'theme-slug' ),
+        'two'       => __( 'Two', 'theme-slug' ),
+        'three'       => __( 'Three', 'theme-slug' ),
+    ),
+),
+```
+![WordPress Customizer Radio Toggle](assets/images/acid-radio-toggle.jpg "Radio Toggle")
 
 #### URL ####
 
