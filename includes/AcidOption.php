@@ -131,8 +131,8 @@ if( ! class_exists( 'AcidOption' ) ) {
                 case 'color' :
                     $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, $this->id, $this->control_args ) );
                     break;
-                case 'color-picker' :
-                    $wp_customize->add_control( new AcidColorPicker( $wp_customize, $this->id, $this->control_args ) );
+                case 'color-select' :
+                    $wp_customize->add_control( new AcidColorSelect( $wp_customize, $this->id, $this->control_args ) );
                     break;
                 case 'radio-image' :
                     $wp_customize->add_control( new AcidRadioImage( $wp_customize, $this->id, $this->control_args ) );
@@ -148,6 +148,9 @@ if( ! class_exists( 'AcidOption' ) ) {
                     break;
                 case 'sortable' :
                     $wp_customize->add_control( new AcidSortable( $wp_customize, $this->id, $this->control_args ) );
+                    break;
+                case 'html' :
+                    $wp_customize->add_control( new AcidHtmlEditor( $wp_customize, $this->id, $this->control_args ) );
                     break;
                 default :
                     $wp_customize->add_control( $this->id, $this->control_args );
@@ -259,8 +262,11 @@ if( ! class_exists( 'AcidOption' ) ) {
                 case 'color' : 
                     $callback = 'sanitize_hex_color';
                     break;
-                case 'color-picker' : 
-                    $callback = 'acid_sanitize_colorpicker';
+                case 'color-select' : 
+                    $callback = 'acid_sanitize_colorselect';
+                    break;
+                case 'html' : 
+                    $callback = 'wp_kses_post';
                     break;
                 case 'image' : 
                     $callback = 'esc_url_raw';

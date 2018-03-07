@@ -64,7 +64,7 @@ function acid_sanitize_select( $input, $setting ){
 }
 
 
-function acid_sanitize_colorpicker( $input, $setting ) {
+function acid_sanitize_colorselect( $input, $setting ) {
     
     $input = sanitize_key( $input );
     $input = '#' . $input;

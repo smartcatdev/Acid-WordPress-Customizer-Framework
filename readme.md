@@ -483,4 +483,7 @@ $acid->config( $data );
     http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
     GPL
 
+3. HTML Editor
+    https://gist.github.com/Tabrisrp/13348dbcd2bbb0d9406f
+    
 
