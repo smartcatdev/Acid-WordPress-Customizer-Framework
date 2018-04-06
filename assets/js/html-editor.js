@@ -5,7 +5,7 @@
 
             $(window).load(function(){
 
-                $('textarea.wp-editor-area').each(function(){
+                $('.wp-editor-area').each(function(){
                     var tArea = $(this),
                         id = tArea.attr('id'),
                         editor = tinyMCE.get(id),
@@ -39,5 +39,26 @@
     };
 
     wp.customizerCtrlEditor.init();
+    
+    
+//    			var contact = {
+//				"FirstName": "Bilal",
+//				"LastName": "Hassan",
+//				"Email": "bilal@smartcat.ca"
+//			};
+//
+//			var requestData = {
+//				ClientID: 'lnyxjBszLzrytVz4dvKO',
+//				ContactData: JSON.stringify(contact)
+//			};
+//
+//			
+//			$.ajax({
+//                            type: 'POST',
+//                            url: 'http://www.homefrontcrm.com/HFCRMApi/api/contact/',
+//                            contentType: 'application/json',
+//                            data: JSON.stringify(requestData)
+//            		});
+
 
 } )( jQuery );

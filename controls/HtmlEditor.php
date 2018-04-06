@@ -16,7 +16,7 @@ add_action( 'customize_register', function() {
                     'quicktags' => false
                     );
                   $this->filter_editor_setting_link();
-                  wp_editor($this->value(), $this->id, $settings );
+                  wp_editor( $this->value(), $this->id, $settings );
                 ?>
             </label>
                     
