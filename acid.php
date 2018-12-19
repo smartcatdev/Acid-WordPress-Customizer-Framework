@@ -4,8 +4,10 @@
  * 
  * @version 0.0.2
  * @author Bilal Hassan
- * @copyright (c) 2018, Bilal Hassan
+ * @copyright (c) 2018, Smartcat Solutions Inc
  * @license    http://opensource.org/licenses/gpl-2.0.php GPL v2 or later
+ * 
+ * 
  * 
  * 
  */
@@ -49,6 +51,7 @@ require_once dirname( __FILE__ ) . '/includes/AcidPanel.php';
 require_once dirname( __FILE__ ) . '/includes/AcidSection.php';
 require_once dirname( __FILE__ ) . '/includes/AcidOption.php';
 require_once dirname( __FILE__ ) . '/includes/AcidCustomizer.php';
+require_once dirname( __FILE__ ) . '/includes/AcidWidget.php';
 require_once dirname( __FILE__ ) . '/includes/functions-sanitization.php';
 require_once dirname( __FILE__ ) . '/includes/functions-option.php';
 
