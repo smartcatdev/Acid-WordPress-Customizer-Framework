@@ -20,7 +20,9 @@ if ( !class_exists( 'AcidWidget' ) ) {
             }
 
             parent::__construct(
-                    $args[ 'id' ], esc_html__( $args[ 'title' ], 'acid' ), array ( 'description' => esc_html__( $args[ 'description' ], 'acid' ), )
+                    $args[ 'id' ],
+                    esc_html__( $args[ 'title' ], 'acid' ), 
+                    array ( 'description' => esc_html__( $args[ 'description' ], 'acid' ), )
             );
 
             add_action( 'admin_footer', array ( $this, 'media_fields' ) );
@@ -69,7 +71,7 @@ if ( !class_exists( 'AcidWidget' ) ) {
         }
 
         public function widget( $args, $instance ) {
-            include $this->output;
+            include $this->file;
         }
 
         /**
