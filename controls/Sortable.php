@@ -1,6 +1,7 @@
 <?php
-add_action( 'customize_register', function() {
+add_action( 'customize_register', 'acid_register_sortable' );
 
+function acid_register_sortable() {
     /**
      * Sortable Repeater Custom Control
      *
@@ -59,7 +60,7 @@ add_action( 'customize_register', function() {
                         <input type="text" value="" class="repeater-input" placeholder="https://" /><span class="dashicons dashicons-sort"></span><a class="customize-control-sortable-repeater-delete" href="#"><span class="dashicons dashicons-no-alt"></span></a>
                     </div>
                 </div>
-                <button class="button customize-control-sortable-repeater-add" type="button"><?php echo $this->button_labels[ 'add' ]; ?></button>
+                <button class="button customize-control-sortable-repeater-add" type="button"><?php echo esc_html( $this->button_labels[ 'add' ] ); ?></button>
             </div>
             <?php
         }
@@ -111,4 +112,4 @@ add_action( 'customize_register', function() {
 
     }
 
-} );
+}

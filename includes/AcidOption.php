@@ -121,7 +121,11 @@ if( ! class_exists( 'AcidOption' ) ) {
             
             global $wp_customize;
             
-            $wp_customize->add_setting( $this->id, $this->setting_args );
+            $wp_customize->add_setting( $this->id, array(
+                'default'               => $this->default,
+                'transport'             => self::TRANSPORT,
+                'sanitize_callback'     => $this->sanitize_callback,
+            ) );
             
             switch( $this->type ) {
                 

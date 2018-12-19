@@ -14,7 +14,10 @@
  * @link       http://themehybrid.com/hybrid-core
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
-add_action( 'customize_register', function() {
+
+add_action( 'customize_register', 'acid_register_radio_image' );
+
+function acid_register_radio_image() {
 
     /**
      * Radio image customize control.
@@ -51,7 +54,7 @@ add_action( 'customize_register', function() {
             <?php endif; ?>
 
             <?php if ( !empty( $this->description ) ) : ?>
-                <span class="description customize-control-description"><?php echo $this->description; ?></span>
+                <span class="description customize-control-description"><?php echo esc_html( $this->description ); ?></span>
             <?php endif; ?>
 
             <div id="<?php echo esc_attr( "input_{$this->id}" ); ?>">
@@ -149,5 +152,5 @@ add_action( 'customize_register', function() {
         }
 
     }
-
-} );
+    
+}

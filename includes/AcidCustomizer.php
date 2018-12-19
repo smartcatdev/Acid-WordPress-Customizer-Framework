@@ -40,11 +40,27 @@ if ( ! class_exists( 'AcidCustomizer' ) ) {
                 
             }
             
+            // are there any top-level sections?
+            if( isset( $this->options['sections'] ) ) {
+                foreach ( $this->options['sections'] as $id => $section ) {
+
+                    $this->create_section( $id, $section );
+
+                }                
+            }
+
+            
         }
         
         private function create_panel( $id, $panel ) {
             
             $panel = new AcidPanel( null, $id, $panel );         
+            
+        }
+        
+        private function create_section( $section_id, $section ) {
+            
+            $section = new AcidSection( null, $section_id, $section );
             
         }
        

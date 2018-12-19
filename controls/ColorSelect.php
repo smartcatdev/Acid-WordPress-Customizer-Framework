@@ -1,6 +1,8 @@
 <?php
 
-add_action( 'customize_register', function() {
+add_action( 'customize_register', 'acid_register_color_select' );
+
+function acid_register_color_select() {
 
     class AcidColorSelect extends WP_Customize_Control {
 
@@ -17,7 +19,7 @@ add_action( 'customize_register', function() {
                 <div class="colorpicker-field">
                     
                     <?php if ( !empty( $this->description ) ) : ?>
-                        <div class="description customize-control-description"><?php echo $this->description; ?></div>
+                        <div class="description customize-control-description"><?php echo esc_html( $this->description ); ?></div>
                     <?php endif; ?>
 
                     <?php
@@ -163,7 +165,7 @@ add_action( 'customize_register', function() {
                     line-height: 20px;
                     height: 20px;
                     width: 20px;
-                    background-color: white;
+                    background-color: lawngreen;
                     border-radius: 50%;
                     -webkit-transition: all 0.3s ease-in-out;
                     -moz-transition: all 0.3s ease-in-out;
@@ -188,5 +190,5 @@ add_action( 'customize_register', function() {
         }
 
     }
-
-} );
+    
+}

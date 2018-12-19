@@ -1,8 +1,7 @@
 <?php
+add_action( 'customize_register', 'acid_register_sort' );
 
-
-add_action( 'customize_register', function() {
-
+function acid_register_sort() {
     class AcidSort extends WP_Customize_Control {
 
         public $type = 'sort';
@@ -24,7 +23,7 @@ add_action( 'customize_register', function() {
                         <span class="range-slider__value">0</span></span>
                 </div>
                 <?php if ( !empty( $this->description ) ) : ?>
-                    <span class="description customize-control-description"><?php echo $this->description; ?></span>
+                    <span class="description customize-control-description"><?php echo esc_html( $this->description ); ?></span>
                 <?php endif; ?>
             </label>
             <?php
@@ -54,4 +53,4 @@ add_action( 'customize_register', function() {
 
     }
 
-} );
+}
